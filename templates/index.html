@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bioinformatics Sequence Analyzer</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="particles"></div><div class="helix h1"></div><div class="helix h2"></div><div class="helix h3"></div>
+<main class="wrap">
+<header class="hero">
+  <div class="brand-row"><div class="dna-logo"><span class="strand s1"></span><span class="strand s2"></span><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div><h1>Bioinformatics Sequence Analyzer</h1><p>DNA • RNA • Protein • Motif • Composition • Property Analysis</p></div></div>
+  <div id="status" class="status ready">● Ready</div>
+</header>
+<section class="panel input">
+ <div class="topline"><div><small>SEQUENCE INPUT</small><h2>Analyze a FASTA sequence</h2></div><label class="upload">📂 Load FASTA<input id="file" type="file" accept=".fasta,.fa,.fna,.txt"></label></div>
+ <textarea id="seq" placeholder="Paste DNA sequence here or load a FASTA file..."></textarea>
+ <div class="bottomline"><span id="fname">sample.fasta • Demo sequence loaded</span><div><button id="clear" class="secondary">Clear</button><button id="analyze" class="primary">🔬 Analyze Sequence</button></div></div>
+</section>
+<section class="stats">
+ <div class="stat"><small>DNA LENGTH</small><b id="len">—</b><span>bp</span></div><div class="stat"><small>GC CONTENT</small><b id="gc">—</b><span>%</span></div><div class="stat"><small>AT CONTENT</small><b id="at">—</b><span>%</span></div><div class="stat"><small>PROTEIN LENGTH</small><b id="pl">—</b><span>aa</span></div>
+</section>
+<section id="results">
+<div class="grid2">
+ <article class="panel"><small>DNA ANALYSIS</small><h2>Sequence Information</h2><div class="seqbox" id="dna"></div><div class="details"><div><label>DNA Length</label><b id="dlen"></b></div><div><label>GC Content</label><b id="dgc"></b></div><div><label>AT Content</label><b id="dat"></b></div><div><label>GC/AT Ratio</label><b id="ratio"></b></div></div></article>
+ <article class="panel"><small>NUCLEOTIDE COMPOSITION</small><h2>A / T / G / C Counts</h2><div class="bases"><div><b>A</b><strong id="A"></strong></div><div><b>T</b><strong id="T"></strong></div><div><b>G</b><strong id="G"></strong></div><div><b>C</b><strong id="C"></strong></div></div><div class="mini-note">Equal counts indicate balanced base composition in this demo sequence.</div></article>
+</div>
+<article class="panel"><small>SEQUENCE TRANSFORMATIONS</small><h2>Complement • Reverse Complement • RNA • ORF</h2><div class="seqgrid"><div><label>Complement</label><code id="comp"></code></div><div><label>Reverse Complement</label><code id="rcomp"></code></div><div><label>RNA Sequence</label><code id="rna"></code></div><div><label>ORF</label><code id="orf"></code></div></div></article>
+<div class="grid2">
+ <article class="panel"><small>PROTEIN ANALYSIS</small><h2>Translation & Amino Acid Analysis</h2><div class="seqbox protein" id="protein"></div><div class="details three"><div><label>Protein Length</label><b id="proteinLength"></b></div><div><label>Most Frequent AA</label><b id="maa"></b></div><div><label>Frequency</label><b id="maf"></b></div></div><h3>Amino Acid Composition</h3><div class="aagrid" id="aaGrid"></div></article>
+ <article class="panel"><small>PROTEIN PROPERTIES</small><h2>Physicochemical Profile</h2><div class="property-grid"><div><label>Molecular Weight</label><b id="mw">—</b><span>Da</span></div><div><label>Theoretical pI</label><b id="pi">—</b></div><div><label>Hydrophobic</label><b id="hyd">—</b></div><div><label>Hydrophilic</label><b id="hydrophilic">—</b></div><div><label>Basic</label><b id="basic">—</b></div><div><label>Acidic</label><b id="acidic">—</b></div><div><label>Charged</label><b id="charged">—</b></div><div><label>Cysteine</label><b id="cys">—</b></div></div></article>
+</div>
+<article class="panel"><div class="topline"><div><small>MOTIF ANALYSIS</small><h2>DNA & Protein Motif Scanner</h2></div></div><div class="motif-inputs"><label>DNA motifs <input id="dnaMotifs" value="ATG,TATA,CAAT"></label><label>Protein motifs <input id="proteinMotifs" value="N-X-S/T,S/T-P,CXXC"></label></div><button id="motifScan" class="secondary">🎯 Scan Custom Motifs</button><div class="motif-columns"><div><h3>DNA Motifs</h3><div id="dnaMotifResults"></div></div><div><h3>Protein Motifs</h3><div id="proteinMotifResults"></div></div></div></article>
+<article class="panel"><div class="topline"><div><small>VISUALIZATION</small><h2>Sequence Plots</h2></div><button id="export" class="secondary">⬇ Export Full Report</button></div><div class="charts"><div><h3>Nucleotide Composition</h3><canvas id="base"></canvas></div><div><h3>GC vs AT Content</h3><canvas id="gcchart"></canvas></div><div><h3>Amino Acid Composition</h3><canvas id="aa"></canvas></div><div><h3>GC Content Along Sequence</h3><canvas id="gcwindow"></canvas></div></div></article>
+</section>
+<footer><div>🧬 <b>Created by Mohd Shahnawaz</b></div><div>MSc Bioinformatics • Jamia Millia Islamia</div></footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="/static/script.js"></script>
+</body></html>
